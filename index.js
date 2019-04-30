@@ -112,6 +112,56 @@ module.exports = function( THREE ) {
 
 		};
 
+		this.zoomIn = function() {
+			dollyOut(getZoomScale());
+			scope.update();
+		}
+
+		this.zoomOut = function() {
+			dollyIn(getZoomScale());
+			scope.update();
+		}
+
+		this.panUp = function() {
+			pan( 0, scope.keyPanSpeed );
+			scope.update();
+		}
+
+		this.panDown = function() {
+			pan( 0, - scope.keyPanSpeed );
+			scope.update();
+		}
+
+		this.panLeft = function() {
+			pan( scope.keyPanSpeed , 0);
+			scope.update();
+		}
+
+		this.panRight = function() {
+			pan( -scope.keyPanSpeed , 0);
+			scope.update();
+		}
+
+		this.rotateLeft = function(){
+			rotateLeft( getAutoRotationAngle()*6);
+			scope.update();
+		}
+
+		this.rotateRight = function(){
+			rotateLeft( -getAutoRotationAngle()*6);
+			scope.update();
+		}
+
+		this.rotateUp = function(){
+			rotateUp( getAutoRotationAngle()*6);
+			scope.update();
+		}
+		this.rotateDown = function(){
+			rotateUp( -getAutoRotationAngle()*6);
+			scope.update();
+		}
+
+
 		// this method is exposed, but perhaps it would be better if we can make it private...
 		this.update = function() {
 
